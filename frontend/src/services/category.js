@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const url = "http://localhost:3000/api/category";
+const url = "http://localhost:5000/api/category";
 
 const create_category_service = async (data) => {
-	const result = await axios.post(`${url} / create`, data);
+	const result = await axios.post(`${url}/create`, data);
 	return result;
 }
 
