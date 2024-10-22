@@ -5,11 +5,14 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import {CategoryProvider} from "./context/CategoryContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import {BookProvider} from "./context/BookContext";
 axios.defaults.withCredentials = true;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CategoryProvider>
-    <Dashboard />
+      <BookProvider>
+          <Dashboard />
+      </BookProvider>
   </CategoryProvider>
 );
 
