@@ -4,21 +4,11 @@ import { useAuthorContext } from "../../../context/AuthorContext";
 import AlertMessage from "../alert/AlertMessage";
 const CreateModal = ({ open, close }) => {
 	const { createAuthor } = useAuthorContext();
-	const [author, setAuthor] = useState({ name: "", lastname: "" });
-	const [show, setShow] = useState(false);
-
-	const handleChage = (event) => {
-		const { name, value } = event.target;
-		setAuthor((prev) => {
-			return { ...prev, [name]: value };
-		});
-	}
-
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-		await createAuthor(author);
-		setShow(!show);
-	}
+	
+	const authorFields = [
+		{ name: "name", label: "Author's name", placeholder: "Enter author's name" },
+		{ name: "lastname", label: "Author's lastname", placeholder: "Enter author's lastname" },
+	]
 
 	return (
 		<>

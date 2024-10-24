@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Categories from "../../pages/Categories/Categories";
 import Authors from '../../pages/Authors/Authors';
-import Books from "../../pages/Books/Books";
+import Books from "../Books/Books";
+import BooksHomepage from "../Books/Books-Homepage";
 
 import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 import "./index.css";
@@ -33,6 +34,7 @@ const Dashboard = () => {
 						</Col>
 						<Col md={10} className="p-4">
 							<Routes>
+								<Route path="/" element={<BooksHomepage />} />
 								<Route path="/authors" element={<Authors />} />
 								<Route path="/category" element={<Categories />} />
 								<Route path="/books" element={<Books />} />
