@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Row, Col, Table, Button } from "react-bootstrap";
-import EditModal from "../../components/modals/category/EditModal";
-import CreateCategoryModal from "../../components/modals/category/CreateCategoryModal";
 import { useCategoryContext } from "../../context/CategoryContext";
 
 const Categories = () => {
-	const { categories, deleteCategories } = useCategoryContext();
+	const { categories, deleteCategorie } = useCategoryContext();
 	const [openEdit, setOpenEdit] = useState(false);
 	const [openCreate, setOpeCreate] = useState(false);
 	const [category, setCategory] = useState(useState({ id: 0, name: "", description: "" }));
@@ -27,7 +25,7 @@ const Categories = () => {
 
 
 	const handleDelete = async (id) => {
-		await deleteCategories(id);
+		await deleteCategorie(id);
 	}
 
 	const handleCreate = () => {
@@ -74,12 +72,6 @@ const Categories = () => {
 					</Table>
 				</Col>
 			</Row>
-			{
-				openEdit && <EditModal open={openEdit} handleShow={handleShow} close={closeEdit} category={category} handleChage={handleChage} />
-			}
-			{
-				openCreate && <CreateCategoryModal open={openCreate} close={closeCreate} />
-			}
 		</>
 	)
 }
