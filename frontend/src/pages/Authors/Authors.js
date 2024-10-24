@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Row, Col, Table, Button } from "react-bootstrap";
 import EditModal from "../../components/modals/author/EditModal";
-import CreateModal from "../../components/modals/author/CreateModal";
+import CreateAuthorModal from "../../components/modals/author/CreateAuthorModal";
 import { useAuthorContext } from "../../context/AuthorContext";
 
 const Authors = () => {
@@ -46,7 +46,6 @@ const Authors = () => {
 								<th>Id</th>
 								<th>Name</th>
 								<th>Lastname</th>
-								<th>Created at</th>
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
@@ -59,7 +58,6 @@ const Authors = () => {
 											<td>{el.id}</td>
 											<td>{el.name}</td>
 											<td>{el.lastname}</td>
-											<td>{el?.created}</td>
 											<td>
 												<Button variant="primary" onClick={() => { handleShow(el) }}>Edit</Button>
 											</td>
@@ -79,7 +77,7 @@ const Authors = () => {
 				openEdit && <EditModal open={openEdit} handleClose={handleClose} authors={author} handleChage={handleChage} />
 			}
 			{
-				openCreate && <CreateModal open={openCreate} close={closeCreate} />
+				openCreate && <CreateAuthorModal open={openCreate} close={closeCreate} />
 			}
 		</>
 	)
